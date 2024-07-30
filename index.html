@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <script src="src/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>List</title>
+</head>
+<body>
+    <h1>Desserts</h1>
+
+    <main>
+        <div class="div-items">
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-waffle-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-waffle-tablet.jpg ">
+                    <img src="src/images/image-waffle-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="0" data-valor = "6.50">
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="0" data-valor = "6.50">
+                        </div>
+                        
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="0" data-valor = "6.50" alt="" srcset="">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Waffle</p>
+                    <p class="secund-name-item"><strong>Waffle with Berries</strong></p>
+                    <p class="value-item"><strong>$6.50</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-creme-brulee-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-creme-brulee-tablet.jpg ">
+                    <img src="src/images/image-creme-brulee-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="1" data-valor = "7.00" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="1" data-valor = "7.00" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="1" alt="" srcset="" data-valor = "7.00">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Crème Brûlée</p>
+                    <p class="secund-name-item"><strong>Vanilla Bean Crème Brûlée</strong></p>
+                    <p class="value-item"><strong>$7.00</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-macaron-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-macaron-tablet.jpg ">
+                    <img src="src/images/image-macaron-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="2" data-valor = "8.00" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="2" data-valor = "8.00" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="2" alt="" srcset="" data-valor = "8.00">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Macaron</p>
+                    <p class="secund-name-item"><strong>Macaron Mix of Five</strong></p>
+                    <p class="value-item"><strong>$8.00</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-tiramisu-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-tiramisu-tablet.jpg ">
+                    <img src="src/images/image-tiramisu-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="3" data-valor = "5.50" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="3" data-valor = "5.50" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="3" alt="" srcset="" data-valor = "5.50">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Tiramisu</p>
+                    <p class="secund-name-item"><strong>Classic Tiramisu</strong></p>
+                    <p class="value-item"><strong>$5.50</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-baklava-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-baklava-tablet.jpg ">
+                    <img src="src/images/image-baklava-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="4" data-valor = "4.00" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="4" data-valor = "4.00" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="4" alt="" srcset="" data-valor = "4.00">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Baklava</p>
+                    <p class="secund-name-item"><strong>Pistachio Baklava</strong></p>
+                    <p class="value-item"><strong>$4.00</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-meringue-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-meringue-tablet.jpg ">
+                    <img src="src/images/image-meringue-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="5" data-valor = "5.00" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="5" data-valor = "5.00" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="5" alt="" srcset="" data-valor = "5.00">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Pie</p>
+                    <p class="secund-name-item"><strong> Lemon Meringue Pie</strong></p>
+                    <p class="value-item"><strong>$5.00</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-cake-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-cake-tablet.jpg ">
+                    <img src="src/images/image-cake-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="6" data-valor = "4.50" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="6" data-valor = "4.50" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="6" alt="" srcset="" data-valor = "4.50">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Cake</p>
+                    <p class="secund-name-item"><strong>Red Velvet Cake</strong></p>
+                    <p class="value-item"><strong>$4.50</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-brownie-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-brownie-tablet.jpg ">
+                    <img src="src/images/image-brownie-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="7" data-valor = "5.50" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="7" data-valor = "5.50" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="7" alt="" srcset="" data-valor = "5.50">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Brownie</p>
+                    <p class="secund-name-item"><strong>Salted Caramel Brownie</strong></p>
+                    <p class="value-item"><strong>$5.50</strong></p>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <picture>
+                    <source media="(min-width:993px)" srcset="src/images/image-panna-cotta-desktop.jpg " >
+                    <source media="(min-width:769px)" srcset="src/images/image-panna-cotta-tablet.jpg ">
+                    <img src="src/images/image-panna-cotta-mobile.jpg" alt="">
+                </picture>
+
+                <div class="btn-local">
+                    <div class="btn_car" data-number="8" data-valor = "6.50" >
+                        <div class="btn_txt">
+                            <img src="src/images/icon-add-to-cart.svg" alt="" srcset="">
+                            <strong>Add to Cart</strong>
+                        </div>
+                    </div>
+                    <div class="btn-orange">
+                        <div class="btn-div">
+                            <img src="src/images/icon-decrement-quantity.svg"  class="btn-quanti decrement" alt="" srcset="" data-number="8" data-valor = "6.50" >
+                        </div>
+                        <output class="num-itens"></output>
+                        
+                        <div class="btn-div">
+                            <img src="src/images/icon-increment-quantity.svg" class="btn-quanti increment" data-number="8" alt="" srcset="" data-valor = "6.50">
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="item-text">
+                    <p class="name-item">Panna Cotta</p>
+                    <p class="secund-name-item"><strong>Vanilla Panna Cotta</strong></p>
+                    <p class="value-item"><strong>$6.50</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="added-box">
+            <div class="added-items">
+                <h2>Your Cart (<output class="quanti-items">0</output>)</h2>
+            
+                <div class="chosen-items">
+                    <div class="order-card">
+                        <div class="order-text">
+                            <h4>Waffle with Berries</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $6.50</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Vanilla Bean Crème Brûlée</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $7.00</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Macaron Mix of Five</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $8.00</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Classic Tiramisu</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $5.50</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Pistachio Baklava</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $4.00</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Lemon Meringue Pie</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $5.00</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Red Velvet Cake</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $4.50</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Salted Caramel Brownie</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $5.50</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+
+                        <div class="order-text">
+                            <h4>Vanilla Panna Cotta</h4>
+                            <div class="order-information">
+                                <div class="order-values">
+                                        <h4><output class="item-quanti"></output>x</h4>
+                                        <p class="initial-value">@ $6.50</p>
+                                        <p>$<output class="final-value"></output></p>
+                                </div>
+                                <img src="src/images/icon-remove-item.svg" alt="" srcset="">
+                            </div>
+                        </div>
+                        
+                        <div class="finalize-order">
+                            <div class="order-total">
+                                <p>Order Total</p>
+                                <h3>
+                                    $<output class="total-value"></output>
+                                </h3>
+                            </div>
+                            <div class="carbon-neutral">
+                                <img src="src/images/icon-carbon-neutral.svg" alt="" srcset="">
+                                <p>This is a <strong>carbon-neutral</strong> delivery</p>
+                            </div>
+                        </div>
+            
+                        <div class="btn-chosen" onclick="confirmCorder()">
+                            <h3>Confirm Order</h3>
+                        </div>
+                    </div>
+                    <div class="no_items">
+                        <img src="src/images/illustration-empty-cart.svg" alt="" srcset="">
+                        <p><strong>Your added items will appear here</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="confirmed-order">
+
+            <img src="src/images/icon-order-confirmed.svg" alt="">
+
+            <h1>Order <br> Confirmed</h1>
+            <p>We hope you enjoy your food!</p>
+
+            <div class="all-confirm-items">
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-waffle-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Waffle with Berries</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$6.50</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-creme-brulee-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Vanilla Bean Crème Brûlée</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$7.00 </p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-macaron-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Macaron Mix of Five</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$8.00</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-tiramisu-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Classic Tiramisu</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$5.50</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-baklava-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Pistachio Baklava</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$4.00</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-meringue-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Lemon Meringue Pie</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$5.00</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-cake-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Red Velvet Cake</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$4.50</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-brownie-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Salted Caramel Brownie</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$4.50</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-item">
+
+                    <div class="item-info">
+                        <img src="src/images/image-panna-cotta-thumbnail.jpg" alt="" srcset="">
+                        
+                        <div class="confirm-order-values">
+                            <h4>Vanilla Panna Cotta</h4>
+                            <strong>
+                                <p class="item-quanti"><output class="item-quanti-confirm"></output>x</p>
+                            </strong>
+                            <p class="initial-value confirm">@$6.50</p>
+                        </div>
+                    </div>
+
+                    <h3>$<output class="final-value-confirm"></output></h3>
+                </div>
+
+                <div class="confirm-value"> 
+                    <p>Order Total</p>
+                    <h3> $<output class="total-value-confirm"></output></h3>
+                </div>
+                
+            </div>
+            <div class="btn-local">
+                <div class="confirm-btn">Start New Order</div>
+            </div>
+
+        </div>
+    </main>
+    
+</body>
+</html>
