@@ -21,14 +21,13 @@ h1{
     margin-bottom: 15px;
 }
 main div.div-items{
-    
     display: flex;
-    flex-direction: column;
-    /*display: none;*/
+    flex-flow: row wrap;
 }
 main div.div-items div.card-item{
     width: 100%;
     margin-bottom: 30px;
+
 }
 main div.div-items div.card-item picture img{
     border-radius: 20px;
@@ -79,7 +78,7 @@ main div.div-items div.card-item div.btn-orange{
     width: 114px;
 }
 
-main div.div-items div.card-item div.btn-orange div.btn-div{
+main div.div-items div.card-item div.btn-orange div.btn-quanti{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,9 +90,15 @@ main div.div-items div.card-item div.btn-orange div.btn-div{
     border-width: 1px;
     border-color: var(--colo1);
     border-radius: 20px;
-    
-
 }
+
+main div.div-items div.card-item div.btn-orange div.btn-quanti img{
+    pointer-events: none;
+}
+main div.div-items div.card-item div.btn-orange div.btn-div img{
+    width: 100%;
+}
+
 main div.div-items div.card-item div.btn-orange div.btn-div:hover{
     background-color: var(--colo1);
 }
@@ -121,7 +126,7 @@ main div.added-box{
     align-items: center;
 }
 main div.added-box div.added-items{
-    width: 90%;
+    width: 100%;
     padding: 20px;
     border-radius: 20px;
     background-color: var(--colo1);
@@ -322,6 +327,52 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     cursor: pointer;
 }
 
+@media screen and (min-width: 769px) and (max-width: 993px) {
+    
+    main div.div-items div.card-item{
+        width: 47%;
+        margin: 10px;
+    
+    }
+    
+}
+
+@media screen and (min-width: 994px){
+    main{
+        display: flex;
+        flex-flow: norow wrap;
+    }
+    main div.div-items{
+        width: 65%;
+    }
+    main div.div-items div.card-item{
+        width: 30%;
+        margin: 10px;
+    
+    }
+
+    main div.div-items div.card-item div.item-text p.secund-name-item{
+        font-size: 1.2vw;
+    }
+
+    main div.div-items div.card-item div.btn_car strong{
+    
+        font-size: 1vw;
+    }
+
+    main div.added-box {
+        align-items: flex-start;
+        width: 40%;
+    }
+
+    main div.confirmed-order{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}
 
 
 

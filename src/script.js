@@ -1,8 +1,8 @@
 
 const add_car = document.querySelectorAll("div.btn_car")
 const add_orange = document.querySelectorAll("div.btn-orange")
-const add_btn = document.querySelectorAll("img.btn-quanti.increment")
-const remove_btn = document.querySelectorAll("img.btn-quanti.decrement")
+const add_btn = document.querySelectorAll("div.btn-quanti.increment")
+const remove_btn = document.querySelectorAll("div.btn-quanti.decrement")
 
 const box_items = document.querySelector("div.div-items")
 const box_cart = document.querySelector("div.added-box")
@@ -25,37 +25,57 @@ let quanti_confirm = document.querySelectorAll("output.item-quanti-confirm")
 let multi_confirm = document.querySelectorAll("output.final-value-confirm")
 let final_confirm = document.querySelector("output.total-value-confirm")
 
+const btn_remove_item = document.querySelectorAll("img.remone_item")
+
 const exit_btn = document.querySelector("img.btn_exit")
 
 const new_Order = document.querySelector("div.confirm-btn")
+
+function add_number (i)
+{   
+    
+    cart_number.value = Number(cart_number.value)+1
+    total_itens[i].value = Number(total_itens[i].value)+1
+    quanti_output[i].value = Number(quanti_output[i].value)+1
+}
+
+function reduce_number (i)
+{
+    total_itens[i].value = Number(total_itens[i].value)-1
+    
+    cart_number.value = Number(cart_number.value)-1
+    
+    quanti_output[i].value = Number(quanti_output[i].value)-1
+}
+
+function btn_defult_function(i, item_valor)
+{
+    mult_result = quanti_output[i].value * item_valor
+
+    value_multi[i].value = mult_result.toFixed(2)
+
+    final_cont.value = (Number(value_multi[0].value) + Number(value_multi[1].value)+ Number(value_multi[2].value)+ Number(value_multi[3].value)+ Number(value_multi[4].value)+ Number(value_multi[5].value)+ Number(value_multi[6].value)+ Number(value_multi[7].value)+ Number(value_multi[8].value)).toFixed(2)
+    
+    mult_result = quanti_output[i].value * item_valor
+
+    quanti_confirm[i].value = quanti_output[i].value
+
+    multi_confirm[i].value = value_multi[i].value
+    
+    final_confirm.value = final_cont.value
+}
 
 function car_btn (btn){
     let indice= btn.target.dataset.number
     
     let valor_item= btn.target.dataset.valor
 
-
-    cart_number.value = Number(cart_number.value)+1
-
-    total_itens[indice].value = Number(total_itens[indice].value)+1
-
-    quanti_output[indice].value = Number(quanti_output[indice].value)+1
-
-    mult_result = quanti_output[indice].value * valor_item
+    add_number(indice, valor_item)
+    btn_defult_function(indice, valor_item)
     
-    mult_result = quanti_output[indice].value * valor_item
-    
-    value_multi[indice].value = mult_result.toFixed(2)
-
     add_car[indice].style.display= "none";
 
     add_orange[indice].style.display= "inline-flex";
-    
-    final_cont.value = (Number(value_multi[0].value) + Number(value_multi[1].value)+ Number(value_multi[2].value)+ Number(value_multi[3].value)+ Number(value_multi[4].value)+ Number(value_multi[5].value)+ Number(value_multi[6].value)+ Number(value_multi[7].value)+ Number(value_multi[8].value)).toFixed(2)
-
-    quanti_confirm[indice].value = quanti_output[indice].value
-
-    multi_confirm[indice].value = value_multi[indice].value
 
     card_txt[indice].style.display= "block";
     card_confirm[indice].style.display= "flex"
@@ -63,53 +83,24 @@ function car_btn (btn){
     box_noItems.style.display = 'none'
     orders_local.style.display= 'block'
 
-    final_confirm.value = final_cont.value
+    
 }
 
 function add_Item(btn){
     let indice= btn.target.dataset.number
     let valor_item= btn.target.dataset.valor
     
-    total_itens[indice].value = Number(total_itens[indice].value)+1
-
-    cart_number.value = Number(cart_number.value)+1
-
-    quanti_output[indice].value = Number(quanti_output[indice].value)+1
-    
-    mult_result = quanti_output[indice].value * valor_item
-    
-    value_multi[indice].value = mult_result.toFixed(2)
-
-    final_cont.value = (Number(value_multi[0].value) + Number(value_multi[1].value)+ Number(value_multi[2].value)+ Number(value_multi[3].value)+ Number(value_multi[4].value)+ Number(value_multi[5].value)+ Number(value_multi[6].value)+ Number(value_multi[7].value)+ Number(value_multi[8].value)).toFixed(2)
-    
-    quanti_confirm[indice].value = quanti_output[indice].value
-
-    multi_confirm[indice].value = value_multi[indice].value
-    
-    final_confirm.value = final_cont.value
+    add_number(indice)
+    btn_defult_function(indice, valor_item)
     
 }
 
-function remove_Item(btn){
+function reduce_Item(btn){
     let indice= btn.target.dataset.number
     let valor_item= btn.target.dataset.valor
-    total_itens[indice].value = Number(total_itens[indice].value)-1
-    
-    cart_number.value = Number(cart_number.value)-1
-    
-    quanti_output[indice].value = Number(quanti_output[indice].value)-1
 
-    mult_result = quanti_output[indice].value * valor_item
-    
-    value_multi[indice].value = mult_result.toFixed(2)
-
-    final_cont.value = (Number(value_multi[0].value) + Number(value_multi[1].value)+ Number(value_multi[2].value)+ Number(value_multi[3].value)+ Number(value_multi[4].value)+ Number(value_multi[5].value)+ Number(value_multi[6].value)+ Number(value_multi[7].value)+ Number(value_multi[8].value)).toFixed(2)
-    
-    quanti_confirm[indice].value = quanti_output[indice].value
-
-    multi_confirm[indice].value = value_multi[indice].value
-    
-    final_confirm.value = final_cont.value
+    reduce_number(indice, valor_item)
+    btn_defult_function(indice, valor_item)
     
     if (cart_number.value == 0 )
     {
@@ -128,6 +119,26 @@ function remove_Item(btn){
 
 }
 
+function remove_Item(btn){
+    let indice= btn.target.dataset.number
+    let valor_item= btn.target.dataset.valor
+
+    card_txt[indice].style.display= "none";
+    add_car[indice].style.display="inline-flex"
+    add_orange[indice].style.display="none"
+    total_itens[indice].value = 0
+    cart_number.value = Number(cart_number.value) - Number(quanti_output[indice].value)
+    final_cont.value =  (Number(final_cont.value) - Number(value_multi[indice].value)).toFixed(2)
+    final_confirm.value = final_cont.value
+    quanti_output[indice].value = 0
+    card_confirm[indice].style.display = "none"
+
+    if (cart_number.value == 0 )
+    {
+        box_noItems.style.display = 'flex'
+        orders_local.style.display= 'none'
+    }
+}
 
 add_car.forEach(function(btn){
     btn.addEventListener("click", car_btn)
@@ -138,20 +149,32 @@ add_btn.forEach(function(btn){
 })
 
 remove_btn.forEach(function(btn){
+    btn.addEventListener("click", reduce_Item)
+})
+
+btn_remove_item.forEach(function(btn){
     btn.addEventListener("click", remove_Item)
 })
 
 function confirmCorder(){
-    box_cart.style.display= "none";
-    box_items.style.display= "none";
-    box_confirm.style.display= "block";
+    
+    if(window.innerWidth >= 994)
+    {
+        box_confirm.style.display= "block";
+    }
+    else{
+        box_cart.style.display= "none";
+        box_items.style.display= "none";
+        box_confirm.style.display= "block";
+    }
 }
 
 exit_btn.addEventListener('click', function(){
 
     box_cart.style.display= "block";
-    box_items.style.display= "block";
+    box_items.style.display= "flex";
     box_confirm.style.display= "none";
+
 
 
 })
