@@ -95,14 +95,11 @@ main div.div-items div.card-item div.btn-orange div.btn-quanti{
 main div.div-items div.card-item div.btn-orange div.btn-quanti img{
     pointer-events: none;
 }
-main div.div-items div.card-item div.btn-orange div.btn-div img{
-    width: 100%;
-}
 
-main div.div-items div.card-item div.btn-orange div.btn-div:hover{
+main div.div-items div.card-item div.btn-orange div.btn-quanti:hover{
     background-color: var(--colo1);
 }
-main div.div-items div.card-item div.btn-orange div.btn-div:hover > img.btn-quanti{
+main div.div-items div.card-item div.btn-orange div.btn-quanti:hover > img{
     filter: invert(28%) sepia(77%) saturate(1828%) hue-rotate(353deg) brightness(86%) contrast(98%);
 }
 
@@ -229,6 +226,7 @@ main div.added-box div.added-items div.chosen-items div.order-card div.btn-chose
     color: var(--colo1);
     border-radius: 20px;
     padding: 10px;
+    cursor: pointer;
 
 }
 

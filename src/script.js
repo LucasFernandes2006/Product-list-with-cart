@@ -1,8 +1,8 @@
 
-const add_car = document.querySelectorAll("div.btn_car")
-const add_orange = document.querySelectorAll("div.btn-orange")
-const add_btn = document.querySelectorAll("div.btn-quanti.increment")
-const remove_btn = document.querySelectorAll("div.btn-quanti.decrement")
+const btn_white = document.querySelectorAll("div.btn_car")
+const btn_orange = document.querySelectorAll("div.btn-orange")
+const btn_increment = document.querySelectorAll("div.btn-quanti.increment")
+const btn_decrement = document.querySelectorAll("div.btn-quanti.decrement")
 
 const box_items = document.querySelector("div.div-items")
 const box_cart = document.querySelector("div.added-box")
@@ -16,7 +16,7 @@ const box_noItems = document.querySelector("div.no_items")
 const orders_local = document.querySelector("div.order-card")
 
 let total_itens = document.querySelectorAll("output.num-itens")
-let cart_number = document.querySelector("output.quanti-items")
+let card_quanti = document.querySelector("output.quanti-items")
 let quanti_output = document.querySelectorAll("output.item-quanti")
 let value_multi = document.querySelectorAll("output.final-value")
 let final_cont = document.querySelector("output.total-value")
@@ -34,7 +34,7 @@ const new_Order = document.querySelector("div.confirm-btn")
 function add_number (i)
 {   
     
-    cart_number.value = Number(cart_number.value)+1
+    card_quanti.value = Number(cart_number.value)+1
     total_itens[i].value = Number(total_itens[i].value)+1
     quanti_output[i].value = Number(quanti_output[i].value)+1
 }
@@ -73,9 +73,9 @@ function car_btn (btn){
     add_number(indice, valor_item)
     btn_defult_function(indice, valor_item)
     
-    add_car[indice].style.display= "none";
+    btn_white[indice].style.display= "none";
 
-    add_orange[indice].style.display= "inline-flex";
+    btn_orange[indice].style.display= "inline-flex";
 
     card_txt[indice].style.display= "block";
     card_confirm[indice].style.display= "flex"
@@ -144,11 +144,11 @@ add_car.forEach(function(btn){
     btn.addEventListener("click", car_btn)
 })
 
-add_btn.forEach(function(btn){
+btn_increment.forEach(function(btn){
     btn.addEventListener("click", add_Item)
 })
 
-remove_btn.forEach(function(btn){
+btn_decrement.forEach(function(btn){
     btn.addEventListener("click", reduce_Item)
 })
 
