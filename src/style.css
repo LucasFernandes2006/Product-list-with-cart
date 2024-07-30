@@ -23,14 +23,11 @@ h1{
 main div.div-items{
     
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 90%;
     /*display: none;*/
 }
 main div.div-items div.card-item{
-    width: 80vh;
+    width: 100%;
     margin-bottom: 30px;
 }
 main div.div-items div.card-item picture img{
@@ -236,12 +233,22 @@ main div.added-box div.added-items div.chosen-items div.order-card div.btn-chose
 main div.confirmed-order{
     display: none;
     background-color: var(--colo1);
-    width: 80%;
-    border-radius: 20px 20px 0px 0px;
+    width: 90%;
+    border-radius: 20px;
     padding: 20px;
-    -webkit-box-shadow: 2px -85px 5px 89px rgba(0,0,0,0.28);
-    -moz-box-shadow: 2px -85px 5px 89px rgba(0,0,0,0.28);
-    box-shadow: 2px -85px 5px 89px rgba(0,0,0,0.28);
+    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+-moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+}
+main div.confirmed-order div.confirm-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main div.confirmed-order div.confirm-icons img.btn_exit{
+    width: 20px;
+    height: 20px;
 }
 main div.confirmed-order div.all-confirm-items{
 
@@ -277,6 +284,13 @@ main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-orde
 main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values p{
     display: inline;
     margin: 5px 5px ;
+}
+
+main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values h4{
+    width: 10ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values p.item-quanti{
     color: hsl(14, 86%, 42%);

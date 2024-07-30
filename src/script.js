@@ -25,6 +25,8 @@ let quanti_confirm = document.querySelectorAll("output.item-quanti-confirm")
 let multi_confirm = document.querySelectorAll("output.final-value-confirm")
 let final_confirm = document.querySelector("output.total-value-confirm")
 
+const exit_btn = document.querySelector("img.btn_exit")
+
 const new_Order = document.querySelector("div.confirm-btn")
 
 function car_btn (btn){
@@ -145,6 +147,14 @@ function confirmCorder(){
     box_confirm.style.display= "block";
 }
 
+exit_btn.addEventListener('click', function(){
+
+    box_cart.style.display= "block";
+    box_items.style.display= "block";
+    box_confirm.style.display= "none";
+
+
+})
 new_Order.addEventListener('click', function(){
     
     Swal.fire({
