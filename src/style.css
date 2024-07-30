@@ -126,12 +126,12 @@ main div.added-box{
     align-items: center;
 }
 main div.added-box div.added-items{
-    width: 100%;
+    width: 90%;
     padding: 20px;
     border-radius: 20px;
     background-color: var(--colo1);
-    position: relative;
-    /*display: none;*/
+    
+
 }
 
 main div.added-box div.added-items h2{
