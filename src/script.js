@@ -113,27 +113,28 @@ function reduce_Item(btn){
         btn_orange[indice].style.display= "none";
         quanti_output[indice].value = ""
         value_multi[indice].value = ""
-        console.log(value_multi[indice].value)
         card_txt[indice].style.display= "none";
+        card_confirm[indice].style.display = "none"
     }
 
 }
+
 
 function remove_Item(btn){
     let indice= btn.target.dataset.number
     let valor_item= btn.target.dataset.valor
 
     card_txt[indice].style.display= "none";
-    add_car[indice].style.display="inline-flex"
+    btn_white[indice].style.display="inline-flex"
     btn_orange[indice].style.display="none"
     total_itens[indice].value = 0
-    cart_number.value = Number(cart_number.value) - Number(quanti_output[indice].value)
+    card_quanti.value = Number(card_quanti.value) - Number(quanti_output[indice].value)
     final_cont.value =  (Number(final_cont.value) - Number(value_multi[indice].value)).toFixed(2)
     final_confirm.value = final_cont.value
     quanti_output[indice].value = 0
     card_confirm[indice].style.display = "none"
 
-    if (cart_number.value == 0 )
+    if (card_quanti.value == 0 )
     {
         box_noItems.style.display = 'flex'
         orders_local.style.display= 'none'

@@ -240,8 +240,8 @@ main div.confirmed-order{
     border-radius: 20px;
     padding: 20px;
     -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
--moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
 }
 main div.confirmed-order div.confirm-icons{
     display: flex;
@@ -329,8 +329,11 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     
     main div.div-items div.card-item{
         width: 47%;
-        margin: 10px;
-    
+        margin: 10px; 
+    }
+
+    main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values h4{
+        width: 20ch;
     }
     
 }
@@ -369,6 +372,11 @@ main div.confirmed-order div.btn-local div.confirm-btn{
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values h4{
+        width: 20ch;
+    }
+
 
 }
 
