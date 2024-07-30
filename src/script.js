@@ -34,7 +34,7 @@ const new_Order = document.querySelector("div.confirm-btn")
 function add_number (i)
 {   
     
-    card_quanti.value = Number(cart_number.value)+1
+    card_quanti.value = Number(card_quanti.value)+1
     total_itens[i].value = Number(total_itens[i].value)+1
     quanti_output[i].value = Number(quanti_output[i].value)+1
 }
@@ -43,7 +43,7 @@ function reduce_number (i)
 {
     total_itens[i].value = Number(total_itens[i].value)-1
     
-    cart_number.value = Number(cart_number.value)-1
+    card_quanti.value = Number(card_quanti.value)-1
     
     quanti_output[i].value = Number(quanti_output[i].value)-1
 }
@@ -102,15 +102,15 @@ function reduce_Item(btn){
     reduce_number(indice, valor_item)
     btn_defult_function(indice, valor_item)
     
-    if (cart_number.value == 0 )
+    if (card_quanti.value == 0 )
     {
         box_noItems.style.display = 'flex'
         orders_local.style.display= 'none'
     }
     if (total_itens[indice].value < 1 )
     {
-        add_car[indice].style.display= "inline-flex";
-        add_orange[indice].style.display= "none";
+        btn_white[indice].style.display= "inline-flex";
+        btn_orange[indice].style.display= "none";
         quanti_output[indice].value = ""
         value_multi[indice].value = ""
         console.log(value_multi[indice].value)
@@ -125,7 +125,7 @@ function remove_Item(btn){
 
     card_txt[indice].style.display= "none";
     add_car[indice].style.display="inline-flex"
-    add_orange[indice].style.display="none"
+    btn_orange[indice].style.display="none"
     total_itens[indice].value = 0
     cart_number.value = Number(cart_number.value) - Number(quanti_output[indice].value)
     final_cont.value =  (Number(final_cont.value) - Number(value_multi[indice].value)).toFixed(2)
@@ -140,7 +140,7 @@ function remove_Item(btn){
     }
 }
 
-add_car.forEach(function(btn){
+btn_white.forEach(function(btn){
     btn.addEventListener("click", car_btn)
 })
 
