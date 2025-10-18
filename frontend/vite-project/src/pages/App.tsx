@@ -1,12 +1,12 @@
-import './App.css'
-import image from './assets/images/image-waffle-desktop.jpg'
-import image2 from './assets/images/image-waffle-tablet.jpg'
-import image3 from './assets/images/image-waffle-mobile.jpg'
-import noItem from './assets/images/illustration-empty-cart.svg'
+import '../pageStyle/App.css'
+import image from '../assets/images/image-waffle-desktop.jpg'
+import image2 from '../assets/images/image-waffle-tablet.jpg'
+import image3 from '../assets/images/image-waffle-mobile.jpg'
+import noItem from '../assets/images/illustration-empty-cart.svg'
 
 
 import { useEffect, useState } from 'react'
-import { api } from './services/api'
+import { api } from '../services/api'
 
 
 interface DessertProps{
