@@ -1,0 +1,418 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --colo1: hsl(20, 50%, 98%);
+  --colo2: hsl(13, 31%, 94%);
+  --colo3: hsl(14, 25%, 72%);
+  --colo4: hsl(7, 20%, 60%);
+  --colo5: hsl(12, 20%, 44%);
+  --colo6: hsl(14, 65%, 9%);
+}
+
+body{
+  font-family: "Red Hat Text", sans-serif;
+  background-color: var(--colo2);
+  padding: 20px;
+  color: var(--colo6);
+}
+
+h1{
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+/* Container geral */
+.newDessert{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Form */
+form[action="dessertForm"]{
+  width: 100%;
+  max-width: 920px;
+  background: var(--colo1);
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* Área da imagem e infos */
+.imageDessert{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Caixa interna de upload/preview */
+.auto_inner{
+  background: transparent;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Texto "Insert an image" */
+.auto_inner > :first-child{
+  color: var(--colo5);
+  font-size: 0.95rem;
+  min-width: 110px;
+}
+
+/* input file */
+.auto_inner input[type="file"]{
+  cursor: pointer;
+  border: 1px dashed var(--colo3);
+  padding: 8px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* preview image */
+.auto_inner img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--colo3);
+  background: #fff;
+}
+
+/* Campos de dados */
+.dessertInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Inputs */
+.dessertInfo input[type="text"],
+.dessertInfo input[type="number"]{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+  outline: none;
+  width: 30em;
+  font-size: 0.95rem;
+  color: var(--colo6);
+}
+
+/* Remove as setas o input number*/
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+/* specific input classes (optional tuning) */
+.nameDessert, .secundNameDessert, .descDessert, .pricecDessert{
+  box-shadow: none;
+}
+
+/* Submit button */
+.dessertInfo input[type="submit"]{
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 20px;
+  background: hsl(14, 86%, 42%);
+  color: var(--colo1);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 150ms ease;
+  
+}
+
+.dessertInfo input[type="submit"]:hover{
+  background: hsl(14, 86%, 35%);
+}
+
+.editeDesset{
+  margin-top: 22px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editeDesset > h1{
+  font-size: 1.2rem;
+  color: var(--colo6);
+  margin-bottom: 8px;
+}
+
+/* container da lista: grid responsivo */
+.listeDesset{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+/* cada card da lista */
+.listedDesset{
+  background: var(--colo1);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.listedDesset:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.06);
+}
+
+/* conteúdo do item: imagem + infos */
+.listedDesset .item-info{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* imagem do item */
+.listedDesset .item-info img{
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--colo3);
+  flex-shrink: 0;
+}
+
+/* área com inputs e ações */
+.listedDesset .confirm-order-values{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* títulos com inputs embutidos */
+.listedDesset h4{
+  font-size: 0.95rem;
+  color: var(--colo6);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* inputs dentro dos h4 */
+.listedDesset h4 input[type="text"]{
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+/* textarea */
+.listedDesset textarea{
+  width: 100%;
+  min-height: 64px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  resize: vertical;
+  font-size: 0.9rem;
+}
+
+/* preço e input number */
+.listedDesset .initial-value{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: hsl(14, 86%, 42%);
+  margin-top: 4px;
+}
+
+.listedDesset .initial-value input[type="number"]{
+  width: 120px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.95rem;
+}
+
+/* botões de ação */
+.listedDesset .confirm-order-values > button{
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 140ms ease, transform 120ms ease;
+  margin-right: 6px;
+}
+
+/* botões específicos */
+.listedDesset .confirm-order-values > button:first-of-type{
+  background: hsl(14, 86%, 42%);
+  color: var(--colo1);
+}
+
+.listedDesset .confirm-order-values > button:first-of-type:hover{
+  background: hsl(14, 86%, 35%);
+}
+
+.listedDesset .confirm-order-values > button:last-of-type{
+  background: transparent;
+  color: var(--colo5);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.listedDesset .confirm-order-values > button:last-of-type:hover{
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* pequenas otimizações de layout quando a largura é menor */
+@media (min-width: 600px){
+  .listeDesset{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 994px){
+  .listeDesset{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .listedDesset .item-info{
+    gap: 18px;
+  }
+
+  .listedDesset .item-info img{
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* auto_inner_updated — versão compacta da área de upload dentro de cada listedDesset */
+.listedDesset .auto_inner_updated{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.92);
+  border: 1px dashed var(--colo3);
+  color: var(--colo5);
+  font-size: 0.9rem;
+  width: fit-content;
+}
+
+/* texto (nó de texto direto) dentro da caixa */
+.listedDesset .auto_inner_updated::first-line{
+  color: var(--colo5);
+}
+
+/* input file estilo leve para combinar */
+.listedDesset .auto_inner_updated input[type="file"]{
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.85rem;
+  color: var(--colo6);
+}
+
+/* quando o input estiver focado */
+.listedDesset .auto_inner_updated input[type="file"]:focus{
+  outline: 2px solid rgba(14,110,255,0.06);
+  box-shadow: 0 0 0 3px rgba(14,110,255,0.03);
+}
+
+/* se quiser um preview menor dentro do card */
+.listedDesset .auto_inner_updated img{
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--colo3);
+}
+
+/* responsividade: ocupa toda a largura em telas pequenas */
+@media (max-width: 600px){
+  .listedDesset .auto_inner_updated{
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .listedDesset .auto_inner_updated input[type="file"]{
+    flex-shrink: 0;
+  }
+}
+
+/* Responsividade */
+@media (min-width: 769px) and (max-width: 993px){
+  .auto_inner img{ width: 110px; height: 110px; }
+  form[action="dessertForm"]{ padding: 20px; }
+
+  .auto_inner img{
+  width: 15em;
+  height: 15em;
+  margin-left: 5em;
+ }
+
+ .dessertInfo input[type="text"], .dessertInfo input[type="number"]{
+    width: 45em;
+  }
+}
+
+@media (min-width: 994px){
+  form[action="dessertForm"]{
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+.auto_inner img{
+  width: 30em;
+  height: 30em;
+ }
+
+  .dessertInfo input[type="text"], .dessertInfo input[type="number"]{
+    width: 20em;
+  }
+
+  .imageDessert{
+    flex-direction: row;
+    align-items: flex-start;
+    width: 60em;
+    gap: 18px;
+  }
+
+  .auto_inner{
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+    padding: 16px;
+    background: linear-gradient(180deg, var(--colo1), rgba(255,255,255,0.9));
+  }
+
+  .dessertInfo{
+    width: 40%;
+  }
+}

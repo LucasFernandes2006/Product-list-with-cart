@@ -21,6 +21,7 @@ model Dessert{
   second_name String
   description String
   price Float
+  image String
 
   @@map("dessert")
 }

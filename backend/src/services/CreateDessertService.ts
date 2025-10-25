@@ -3,12 +3,13 @@ interface CreateDessertProps{
     name: string, 
     second_name: string, 
     description: string, 
-    price: number
+    price: number,
+    image:string
 }
 class CreateDessertService {
-    async execute({name, second_name, description, price }: CreateDessertProps){
+    async execute({name, second_name, description, price, image }: CreateDessertProps){
 
-        if(!name || !second_name|| !description || !price){
+        if(!name || !second_name|| !description || !price || !image){
             throw new Error("Preencha todos os campos")
         }
         
@@ -17,7 +18,8 @@ class CreateDessertService {
                 name, 
                 second_name, 
                 description, 
-                price
+                price,
+                image
             }
         })
         return dessert

@@ -1,10 +1,9 @@
 import '../pageStyle/App.css'
-import image from '../assets/images/image-waffle-desktop.jpg'
-import image2 from '../assets/images/image-waffle-tablet.jpg'
-import image3 from '../assets/images/image-waffle-mobile.jpg'
+
+
 import noItem from '../assets/images/illustration-empty-cart.svg'
 
-
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { api } from '../services/api'
 
@@ -14,7 +13,8 @@ interface DessertProps{
   name: string;
   second_name: string;
   description: string;
-  price: number
+  price: number;
+  image:string
 }
 
 export default function App() {
@@ -32,7 +32,7 @@ export default function App() {
   
   return (
     <div>
-      <h1>Desserts</h1>
+      <h1> Desserts</h1>
     <main>
       
       <div className="div-items">
@@ -41,13 +41,14 @@ export default function App() {
           
           <div className="card-item" key={dessertInfo.id}>
           <picture>
-            <source media="(min-width:993px)" srcSet={image} />
-            <source media="(min-width:769px)" srcSet={image2} />
-            <img src={image3} alt="" />
+            <source media="(min-width:993px)" srcSet={dessertInfo.image} />
+            <source media="(min-width:769px)" srcSet={dessertInfo.image} />
+            <img src={dessertInfo.image} alt="" />
           </picture>
 
           <div className="btn-local">
             <div className="btn_car" data-number="0" data-valor="6.50">
+              
               <div className="btn_txt">
                 <img src="src/images/icon-add-to-cart.svg" alt="" srcSet="" />
                 <strong>Add to Cart</strong>
