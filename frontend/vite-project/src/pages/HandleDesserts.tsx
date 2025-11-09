@@ -87,7 +87,7 @@ export default function HandleDesserts() {
     
     event.preventDefault();
     if(!nameRef.current?.value || !secundNameRef.current?.value || !desRef.current?.value ||!priceRef.current?.value || image == "")  {alert("É necessário preencher todos os campos")};
-
+      
     const response = await api.post("/createDesser", {
 
       name: nameRef.current?.value , 

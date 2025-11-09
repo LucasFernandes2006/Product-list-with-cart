@@ -43,29 +43,36 @@ main div.div-items div.card-item div.btn_car{
     border-style: solid;
     border-width: 1px;
     padding: 15px;
-    border-radius: 40px;
+    border-radius: 60px;
     display: inline-flex;
     cursor: pointer;
     transform: translateY(-70%);
 }
-
+.btn_car.hidden {
+  display: none !important;
+}
 main div.div-items div.card-item div.btn_car:hover{
     border-color: hsl(14, 86%, 42%);
     color: hsl(14, 86%, 42%);
 }
 main div.card-item div.btn_car div.btn_txt{
     pointer-events: none;
+    padding: 0.5em;
 }
-main div.card-item div.btn_car img {
-    height: 20px;
-    width: 21px;
+main div.card-item div.btn_car  img {
+    height: 1.4em;
+    width: 1.4em;
     position: relative;
     top: 5px;
 
 }
 
 main div.div-items div.card-item div.btn-orange{
-    display: flex;
+    display: none;
+}
+
+.btn-orange.show {
+    display: flex !important;
     align-items: center;
     justify-content: space-between;
     background-color: hsl(14, 86%, 42%);
@@ -74,7 +81,6 @@ main div.div-items div.card-item div.btn-orange{
     border-radius: 40px;
     transform: translateY(-70%);
     cursor: pointer;
-    display: none;
     width: 114px;
 }
 
@@ -82,8 +88,8 @@ main div.div-items div.card-item div.btn-orange div.btn-quanti{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10px;
-    height: 10px;
+    width: 1em;
+    height: 1em;
     position: relative;
     padding: 3px;
     border-style: solid;
@@ -147,24 +153,35 @@ main div.added-box div.added-items div.chosen-items div.no_items{
 main div.added-box div.added-items div.chosen-items div.no_items p{
     color: rgb(139, 136, 136);
 }
+
+main div.added-box div.added-items div.chosen-items div.no_items.hidden{
+    display: none !important;
+}
 main div.added-box div.added-items div.chosen-items img{
     width: 128px;
     height: 128px;
     position: relative;
 }
-main div.added-box div.added-items div.chosen-items div.order-card{
-    display: none;
+main div.added-box div.added-items div.chosen-items div.order-card.hidden{
+    display: none !important;
 }
 
 main div.added-box div.added-items div.chosen-items div.order-card div.order-text{
+
+    display: none;
+}
+
+.order-text.show{
+    display: block !important;
     margin-top: 15px;
     border: 0px;
     border-bottom: 1px ;
     border-style: solid;
     border-color: var(--colo3);
     padding-bottom: 15px;
-    display: none;
 }
+
+
 main div.added-box div.added-items div.chosen-items div.order-card div.order-text div.order-information{
     display: flex;
     flex-direction: row;
@@ -185,8 +202,8 @@ main div.added-box div.added-items div.chosen-items div.order-card div.order-tex
 }
 
 main div.added-box div.added-items div.chosen-items div.order-card div.order-text div.order-information img{
-    width: 12px;
-    height: 12px;
+    width: 1.3em;
+    height: 1.3em;
     border-style: solid;
     border-width: 1px;
     border-color: var(--colo3);
@@ -233,8 +250,31 @@ main div.added-box div.added-items div.chosen-items div.order-card div.btn-chose
 main div.added-box div.added-items div.chosen-items div.order-card div.btn-chosen:active{
     background-color: hsl(14, 86%, 27%);
 }
-main div.confirmed-order{
-    display: none;
+
+main div.confirmed-order div.all-confirm-items div.confirm-value{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+main div.confirmed-order div.btn-local{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div.confirmed-order div.btn-local div.confirm-btn{
+    text-align: center;
+    background-color: hsl(14, 86%, 42%);
+    color: var(--colo1);
+    width: 90%;
+    border-radius: 30px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+main div.confirmed-order.show{
+    display: block;
     background-color: var(--colo1);
     width: 90%;
     border-radius: 20px;
@@ -242,17 +282,28 @@ main div.confirmed-order{
     -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
     -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
     box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    position: absolute;
+    left: 5%;
+    
 }
+
+main div.confirmed-order{
+    display: none;
+}
+
 main div.confirmed-order div.confirm-icons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0.1em;
 }
 
 main div.confirmed-order div.confirm-icons img.btn_exit{
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
+
 main div.confirmed-order div.all-confirm-items{
 
     background-color: var(--colo2);
@@ -260,8 +311,15 @@ main div.confirmed-order div.all-confirm-items{
     border-radius: 10px;
     padding: 10px;
 }
+
+
 main div.confirmed-order div.all-confirm-items div.confirm-item{
     display: none;
+    
+}
+
+main div.confirmed-order div.all-confirm-items div.confirm-item.show{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     border: 0px;
@@ -269,6 +327,12 @@ main div.confirmed-order div.all-confirm-items div.confirm-item{
     border-style: solid;
     border-color: var(--colo3);
     padding: 15px;
+    transition: all 5s;
+    animation: fade-in 1s ease;
+}
+
+main div.confirmed-order div.all-confirm-items div.confirm-item.hidden{
+    display: none;
 }
 main div.confirmed-order div.all-confirm-items div.confirm-item div.item-info{
     display: flex;
@@ -308,6 +372,7 @@ main div.confirmed-order div.all-confirm-items div.confirm-value{
     justify-content: space-between;
     padding: 15px;
 }
+
 main div.confirmed-order div.btn-local{
     width: 100%;
     margin-top: 40px;
@@ -335,7 +400,20 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values h4{
         width: 20ch;
     }
-    
+    main div.confirmed-order.show{
+    display: block;
+    background-color: var(--colo1);
+    width: 90%;
+    border-radius: 20px;
+    padding: 20px;
+    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    position: absolute;
+    transform: translate(-50%);
+    top: 20%;
+    left: 50%;
+}
 }
 
 @media screen and (min-width: 994px){
@@ -357,13 +435,43 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     }
 
     main div.div-items div.card-item div.btn_car strong{
-    
         font-size: 1vw;
     }
 
     main div.added-box {
         align-items: flex-start;
         width: 40%;
+    }
+
+    main div.card-item div.btn_car img {
+    height: 2em;
+    width: 2em;
+    position: relative;
+    top: 5px;
+    }
+    
+    .btn-orange.show {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(14, 86%, 42%);
+    color:var(--colo1);
+    padding: 1.5em;
+    border-radius: 40px;
+    transform: translateY(-70%);
+    cursor: pointer;
+    width: 13em;
+}
+
+
+    main div.div-items div.card-item div.btn-orange div.btn-quanti{
+        width: 1.3em;
+        height: 1.3em;
+        padding: 1em;
+    }
+    main div.div-items div.card-item div.btn-orange div.btn-quanti img{
+        width: 1.3em;
+        height: 1.3em;
     }
 
     main div.confirmed-order{
@@ -376,6 +484,21 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values h4{
         width: 20ch;
     }
+
+    main div.confirmed-order.show{
+    display: block;
+    background-color: var(--colo1);
+    width: 90%;
+    border-radius: 20px;
+    padding: 20px;
+    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
+    position: absolute;
+    transform: translate(-50%);
+    top: 20%;
+    left: 50%;
+}
 
 
 }
