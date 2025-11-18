@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import '../pageStyle/App.css'
+import '../pageStyle/DoceAI.css'
+
+import LogoAI from '../assets/images/DoceAI_logo.png'
 
 type Message = {
   role: "You" | "DoceAI";
@@ -17,6 +19,7 @@ export default function DoceAI() {
     if (!text.trim()) return;
 
     setLoading(true);
+    setText("");
 
     // adiciona mensagem do usuário
     setMessages(prev => [...prev, { role: "You", content: text }]);
@@ -42,31 +45,41 @@ export default function DoceAI() {
       console.error("Erro na IA", err);
     }
 
-    setText("");
+    
     setLoading(false);
   }
 
   return (
-    <div>
-      <div>
-        {messages.map((msg, idx) => (
-          <div key={idx}>
-            <strong>{msg.role}: </strong> {msg.content}
-          </div>
-        ))}
-      </div>
+    <div className="doceai-container">
 
-      {loading && <p>Loading...</p>}
+    <img src={LogoAI} className="logo-ai" />
+    <h1 className="doceai-title">Converse com a DoceAI</h1>
 
-      <form onSubmit={sendMessage}>
-        <input
-          type="text"
-          placeholder="Digite sua mensagem"
-          onChange={(e) => setText(e.target.value)}
-          value={text}
-        />
-        <button type="submit">Enviar</button>
-      </form>
+    <div className="messages-area">
+      {messages.map((msg, idx) => (
+        <div
+          key={idx}
+          className={
+            "message " + (msg.role === "You" ? "message-you" : "message-ai")
+          }
+        >
+          <strong>{msg.role}: </strong> {msg.content}
+        </div>
+      ))}
     </div>
+
+    {loading && <p className="loading">Carregando...</p>}
+
+    <form className="chat-form" onSubmit={sendMessage}>
+      <input
+        type="text"
+        placeholder="Digite sua mensagem"
+        onChange={(e) => setText(e.target.value)}
+        value={text}
+      />
+      <button type="submit">Enviar</button>
+    </form>
+
+  </div>
   );
 }

@@ -1,0 +1,108 @@
+/* Container principal */
+.doceai-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff6fb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px #ffbcd450;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+/* Logo */
+.logo-ai {
+  width: 140px;
+  margin: 0 auto 10px auto;
+  display: block;
+  border-radius: 50%;
+  border: 2px solid #e66842;
+}
+
+/* Título */
+.doceai-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #c73a0f    ;
+  margin-bottom: 20px;
+}
+
+/* Área das mensagens */
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Bolha de mensagem */
+.message {
+  max-width: 80%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+/* Mensagem do usuário */
+.message-you {
+  align-self: flex-end;
+  background-color: #e66842;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+/* Mensagem da IA */
+.message-ai {
+  align-self: flex-start;
+  background-color: white;
+  border: 1px solid #e66842;
+  color: #c73a0f;
+  border-bottom-left-radius: 2px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Form de envio */
+.chat-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e66842;
+  outline: none;
+  font-size: 15px;
+}
+
+.chat-form input:focus {
+  border-color: #e66842;
+}
+
+.chat-form button {
+  background-color: #ca4a23;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chat-form button:hover {
+  background-color: #a1300e;
+}
