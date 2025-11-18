@@ -500,10 +500,20 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     left: 50%;
 }
 
-
 }
 
+.chat-button {
+    position: fixed;
+    top: 85%;
+    left: 90%;
+    padding: 28px;
+    border-radius: 50%;
+    border: none;
+    background-color: #c73a0f;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-
-
-
+.chat-button:hover {
+    transform: scale(118%);
+}
