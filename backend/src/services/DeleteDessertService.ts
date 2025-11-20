@@ -8,7 +8,9 @@ class DeleteDessertService{
     async execute({id}: DeleteDessertProps){
 
         if(!id){
+        
         throw new Error("Id não encontardo")
+        
         }
 
         const findItem = await prismaClient.dessert.findFirst({

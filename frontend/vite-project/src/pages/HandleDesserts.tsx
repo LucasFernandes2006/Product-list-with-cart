@@ -1,23 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
-import type { ChangeEvent, FormEvent } from 'react'
-import { api } from '../services/api'
+import {useRef} from 'react'
+import useHandleDessertsHooks from '../hooks/useHandleDessertsHooks';
 import '../pageStyle/HandleDesserts.css'
 
-interface DessertProps{
-  id: string;
-  name: string;
-  second_name: string;
-  description: string;
-  price: number;
-  image:string
-}
-
 export default function HandleDesserts() {
-  
-  
-  const [image, setImage] =  useState<string> ("")
-  const [imageUpdate, setImageUpadate] =  useState<string> ("")
-
   const nameRef =  useRef<HTMLInputElement | null> (null)
   const secundNameRef =  useRef<HTMLInputElement | null> (null)
   const desRef =  useRef<HTMLInputElement | null> (null)
@@ -28,122 +13,28 @@ export default function HandleDesserts() {
   const desRefUpdate =  useRef<Record<string,HTMLTextAreaElement | null>> ({})
   const priceRefUpdate =  useRef<Record<string,HTMLInputElement | null>> ({})
   const imageLoad =  useRef<Record<string,HTMLImageElement| null>> ({})
-  
-
-
-  //função para carregar as sobremesas já existentes
-
-    const [dessert, setDessert] = useState<DessertProps[]>([])
-  
-    useEffect(()=> {
-      loadDesserts(); 
-    },[])
-
-
-    async function loadDesserts(){
-    const response = await api.get("/listDesserts")
-    setDessert(response.data);
-  }
-
-  //função para converter imagem em texto
-  function converToBase64(e: ChangeEvent<HTMLInputElement>){
-    const imageTarget = e.currentTarget
-    
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () =>{
-      
-
-      if (typeof reader.result === 'string') {
-
-        const card = imageTarget.closest('.listedDesset') 
-        const img = card?.querySelector('img') as HTMLImageElement || null;
-
-        if (e.target.className == "updateImage")
-        { 
-          img.src = reader.result
-          setImageUpadate(reader.result)
-          
-        }
-        else
-        {
-          setImage(reader.result)
-          
-        }
-        
-      }
-    };
-    reader.onerror = error =>{
-      console.log("Error: ", error);
-    };
-  }
-
-  //função para registrar as sobremesas 
-  async function dessertSubmit(event:FormEvent){
-    
-    
-    event.preventDefault();
-    if(!nameRef.current?.value || !secundNameRef.current?.value || !desRef.current?.value ||!priceRef.current?.value || image == "")  {alert("É necessário preencher todos os campos")};
-      
-    const response = await api.post("/createDesser", {
-
-      name: nameRef.current?.value , 
-      second_name:secundNameRef.current?.value , 
-      description:desRef.current?.value , 
-      price: Number(priceRef.current?.value),
-      image: image
-    })
-
-      console.log(response.data)
-      location.reload()
-      
-  }
-
-  //função para atualizar as sobremesas
-  async function updateDesserts(id:string){
-    
-    if(!nameRefUpdate.current[id]?.value || !secundNameRefUpdate.current[id]?.value || !desRefUpdate.current[id]?.value ||!priceRefUpdate.current[id]?.value)  {alert("Nem um campo pode ficar vazio")};
-
-    console.log(nameRefUpdate.current[id]?.value )
-    console.log(secundNameRefUpdate.current[id]?.value )
-    console.log(desRefUpdate.current[id]?.value )
-    console.log(priceRefUpdate.current[id]?.value )
-
-
-    const response = await api.put("/updateDesserts",{
-      id: id,
-      name: nameRefUpdate.current[id]?.value,
-      second_name: secundNameRefUpdate.current[id]?.value,
-      description: desRefUpdate.current[id]?.value,
-      price: Number(priceRefUpdate.current[id]?.value),
-      image: imageUpdate != "" ? imageUpdate: imageLoad.current[id]?.src
-    })
-    console.log(response.data)
-    alert(`As sobremesa ${nameRefUpdate.current[id]?.value} foi atulizada`)
-    location.reload()
-  }
-
-  //função para apagar as sobremesas
-  async function deletDesserts(id:string){
-
-    await api.delete("/deleteDesserts", {
-      params:{
-        id: id,
-      }
-    })
-    location.reload()
-  }
-
+  const {logoutUser,moveHome, loginUser,dessert, dessertSubmit, converToBase64,image, updateDesserts, deletDesserts }= useHandleDessertsHooks();
   
   return (
     <>
+          <nav className="navbar-app">
+        <div className="navbar-content">
+          <span className="navbar-title">🍰 Dessert Shop, Hello:{loginUser.name} </span>
+          
+          <div className="navbar-user">
+            <button className="navbar-logout" onClick={() => moveHome()}>
+              Home
+            </button>
+            <button className="navbar-logout" onClick={() => logoutUser()}>
+              Logout
+            </button>
+          </div>
+        </div>
+      </nav>
     <h1>Create Dessert</h1>
     <div className='newDessert'>
 
-      <form action="dessertForm" onSubmit={dessertSubmit}>
+      <form action="dessertForm" onSubmit={(e) => dessertSubmit(e, nameRef, secundNameRef, desRef, priceRef)}>
           <div className='imageDessert'>
             <div className='auto_inner'>
               Insert an image
@@ -151,7 +42,7 @@ export default function HandleDesserts() {
               <input 
               accept= "image/" 
               type="file" 
-              onChange={converToBase64}
+              onChange={(e) => converToBase64(e)}
               />
               <img  src={image || undefined} />
               
@@ -172,8 +63,8 @@ export default function HandleDesserts() {
           </div>
         </form>
       </div>
-      <div className='editeDesset'>
 
+      <div className='editeDesset'>
         <h1>Existing Desserts</h1>
           <div className='listeDesset'>
             
@@ -202,20 +93,18 @@ export default function HandleDesserts() {
                               accept= "image/" 
                               type="file"
                               className={'updateImage'}
-                              onChange={converToBase64}
+                              onChange={(e) => converToBase64(e)}
                               key={dessertInfo.id}
                               />                             
                             </div>
 
-                            <button onClick={() => updateDesserts(dessertInfo.id)}> Upadate</button>
+                            <button onClick={() => updateDesserts(dessertInfo.id, nameRefUpdate, secundNameRefUpdate, desRefUpdate, priceRefUpdate, imageLoad)}> Upadate</button>
                             <button onClick={() => deletDesserts(dessertInfo.id)}>Deleted</button>
                         </div>
                     </div>
               </div>
 
-            ))}
-
-            
+            ))}           
           </div>
       </div>
     </>

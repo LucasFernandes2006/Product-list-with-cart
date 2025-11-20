@@ -8,15 +8,10 @@ import carbonIcon from '../assets/images/icon-carbon-neutral.svg'
 import incrementIcon from '../assets/images/icon-increment-quantity.svg'
 import decrementIcon from '../assets/images/icon-decrement-quantity.svg'
 import confirm from '../assets/images/icon-order-confirmed.svg'
-
-
-
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { api } from '../services/api'
 import useAppHooks from '../hooks/useAppHooks'
-
-
 
 interface DessertProps{
   id: string;
@@ -30,7 +25,7 @@ interface DessertProps{
 export default function App() {
   
   const [dessert, setDessert] = useState<DessertProps[]>([])
-  const {addCarFunction, isHidden, isShow, getQuantity, incrementFunction, decrementFunction, totalQuantity,showIndividualTotal,toltalValue, isHiddenNoItems, removeItem, showConfirm,hiddenConfirm, visibleConfirm, AlertSweet} = useAppHooks();
+  const {addCarFunction, isHidden, isShow, getQuantity, incrementFunction, decrementFunction, totalQuantity,showIndividualTotal,toltalValue, isHiddenNoItems, removeItem, showConfirm,hiddenConfirm, visibleConfirm, AlertSweet, loginUser, showConfirmedOrder,logoutUser,moveHandleDesserts} = useAppHooks();
 
   useEffect(()=> {
     loadDesserts(); 
@@ -40,11 +35,26 @@ export default function App() {
     const response = await api.get("/listDesserts")
     setDessert(response.data);
   }
-
-  
-  
   return (
+    
     <div>
+      <nav className="navbar-app">
+        <div className="navbar-content">
+          <span className="navbar-title">🍰 Dessert Shop, hello {loginUser.name} </span>
+          
+          <div className="navbar-user">
+            { loginUser.user_type == "admim" &&(
+            <button className="navbar-logout" onClick={() => moveHandleDesserts()}>
+              Handle Desserts
+            </button>
+            )}
+            <button className="navbar-logout" onClick={() => logoutUser()}>
+              Logout
+            </button>
+          </div>
+        </div>
+      </nav>
+      
       <h1> Desserts</h1>
     <main>
       
@@ -140,7 +150,9 @@ export default function App() {
           </div>
         </div>
       </div>
-
+      {showConfirmedOrder && (   
+      <>
+      <div className="confirmed-order-overlay"></div>
       <div className= {`confirmed-order ${visibleConfirm() ? 'show' : ''}`}>
             <div className="confirm-icons">
                 <img src={confirm} alt=""/>
@@ -180,7 +192,8 @@ export default function App() {
                 </div>
             </div>           
       </div>
-
+      </>
+      )}
     </main>
     </div>
   )

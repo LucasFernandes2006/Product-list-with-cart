@@ -25,3 +25,15 @@ model Dessert{
 
   @@map("dessert")
 }
+
+model User{
+
+  id String @id @default(auto()) @map("_id") @db.ObjectId 
+  name String 
+  email String @unique
+  date_of_birth String
+  password String
+  user_type String @default("normal_user")
+
+  @@map("users")
+}

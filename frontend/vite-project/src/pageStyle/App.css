@@ -10,6 +10,7 @@
     --colo4:hsl(7, 20%, 60%);
     --colo5: hsl(12, 20%, 44%);
     --colo6:hsl(14, 65%, 9%);
+    --colo7:hsl(14, 86%, 42%);
 }
 body {
     font-family:"Red Hat Text", sans-serif;
@@ -17,6 +18,63 @@ body {
     background-color: var(--colo2);
 }
 
+.navbar-app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: var(--colo7);
+  color: #fff;
+  padding: 0.7rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 18px;
+}
+
+.navbar-content {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.navbar-username {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.navbar-logout {
+  background: #fff;
+  color: var(--colo7);
+  border: none;
+  border-radius: 18px;
+  padding: 7px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navbar-logout:hover {
+  background: var(--colo7);
+  color: #fff;
+  border: 1px solid #fff;
+}
+/* ...existing code... */
 h1{
     margin-bottom: 15px;
 }
@@ -52,8 +110,8 @@ main div.div-items div.card-item div.btn_car{
   display: none !important;
 }
 main div.div-items div.card-item div.btn_car:hover{
-    border-color: hsl(14, 86%, 42%);
-    color: hsl(14, 86%, 42%);
+    border-color: var(--colo7);
+    color: var(--colo7);
 }
 main div.card-item div.btn_car div.btn_txt{
     pointer-events: none;
@@ -75,7 +133,7 @@ main div.div-items div.card-item div.btn-orange{
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    background-color: hsl(14, 86%, 42%);
+    background-color: var(--colo7);
     color:var(--colo1);
     padding: 15px;
     border-radius: 40px;
@@ -121,7 +179,7 @@ main div.div-items div.card-item div.item-text p.name-item{
 }
 
 main div.div-items div.card-item div.item-text p.value-item{
-    color: hsl(14, 86%, 42%);
+    color: var(--colo7);
 }
 main div.added-box{
     display: flex;
@@ -138,7 +196,7 @@ main div.added-box div.added-items{
 }
 
 main div.added-box div.added-items h2{
-    color: hsl(14, 86%, 42%);
+    color: var(--colo7);
     white-space: nowrap;
 }
 
@@ -194,7 +252,7 @@ main div.added-box div.added-items div.chosen-items div.order-card div.order-tex
 }
 
 main div.added-box div.added-items div.chosen-items div.order-card div.order-text div.order-information div.order-values h4{
-    color:  hsl(14, 86%, 42%);
+    color:  var(--colo7);
 }
 
 main div.added-box div.added-items div.chosen-items div.order-card div.order-text div.order-information div.order-values p{
@@ -239,7 +297,7 @@ main div.added-box div.added-items div.chosen-items div.order-card div.btn-chose
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: hsl(14, 86%, 42%);
+    background-color: var(--colo7);
     color: var(--colo1);
     border-radius: 20px;
     padding: 10px;
@@ -265,7 +323,7 @@ main div.confirmed-order div.btn-local{
 }
 main div.confirmed-order div.btn-local div.confirm-btn{
     text-align: center;
-    background-color: hsl(14, 86%, 42%);
+    background-color: var(--colo7);
     color: var(--colo1);
     width: 90%;
     border-radius: 30px;
@@ -277,14 +335,28 @@ main div.confirmed-order.show{
     display: block;
     background-color: var(--colo1);
     width: 90%;
+    max-width: 520px;
     border-radius: 20px;
     padding: 20px;
-    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    position: absolute;
-    left: 5%;
-    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.confirmed-order-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.43);
+  pointer-events: all;
+}
+
+.swal-custom-z {
+  z-index: 20000 !important;
+  
 }
 
 main div.confirmed-order{
@@ -360,7 +432,7 @@ main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-orde
     text-overflow: ellipsis;
 }
 main div.confirmed-order div.all-confirm-items div.confirm-item div.confirm-order-values p.item-quanti{
-    color: hsl(14, 86%, 42%);
+    color: var(--colo7);
     
 }
 main div.confirmed-order div.all-confirm-items div.confirm-item  h3{
@@ -382,7 +454,7 @@ main div.confirmed-order div.btn-local{
 }
 main div.confirmed-order div.btn-local div.confirm-btn{
     text-align: center;
-    background-color: hsl(14, 86%, 42%);
+    background-color: var(--colo7);
     color: var(--colo1);
     width: 90%;
     border-radius: 30px;
@@ -391,6 +463,7 @@ main div.confirmed-order div.btn-local div.confirm-btn{
 }
 
 @media screen and (min-width: 769px) and (max-width: 993px) {
+    
     
     main div.div-items div.card-item{
         width: 47%;
@@ -406,9 +479,6 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     width: 90%;
     border-radius: 20px;
     padding: 20px;
-    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
     position: absolute;
     transform: translate(-50%);
     top: 20%;
@@ -417,6 +487,13 @@ main div.confirmed-order div.btn-local div.confirm-btn{
 }
 
 @media screen and (min-width: 994px){
+    .navbar-app {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0% 0px 20px  20px ;
+    }
     main{
         display: flex;
         flex-flow: norow wrap;
@@ -454,7 +531,7 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     display: flex !important;
     align-items: center;
     justify-content: space-between;
-    background-color: hsl(14, 86%, 42%);
+    background-color: var(--colo7);
     color:var(--colo1);
     padding: 1.5em;
     border-radius: 40px;
@@ -491,17 +568,11 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     width: 90%;
     border-radius: 20px;
     padding: 20px;
-    -webkit-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    -moz-box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
-    box-shadow: 43px -37px 0px 2000px rgba(0,0,0,0.43);
     position: absolute;
     transform: translate(-50%);
     top: 20%;
     left: 50%;
-}
-
-
-}
+}}
 
 
 
