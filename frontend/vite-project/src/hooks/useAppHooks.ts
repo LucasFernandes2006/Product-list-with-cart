@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 import Swal from 'sweetalert2';
+
 export default function useAppHooks(){
     const [hiddenMap, setHiddenMap] = useState<Record<string, boolean>>({});
     const [hiddenNoItems, setHiddenNoItems] = useState<boolean>();
@@ -7,7 +10,25 @@ export default function useAppHooks(){
     const [individualQuantity, setIndividualQuantity] = useState<Record<string, number>>({});
     const [individualTotal, setIndividualTotal] = useState<Record<string, number>>({});
     const [prices, setPrices] = useState<Record<string, number>>({});
+    const [showConfirmedOrder, setShowConfirmedOrder] = useState(false);
+    const navigate = useNavigate();
 
+        const context = useContext(UserContext);
+        if (!context) {
+            throw new Error("useLoginUserHooks deve ser usado dentro de um UserProvider");
+        }
+        const { loginUser, userInfo } = context;
+        
+        function logoutUser(){
+            userInfo("","");
+            localStorage.removeItem("loginUser")
+            navigate('/');
+        }
+
+        function moveHandleDesserts(){
+            navigate('/handleDesserts');
+        }
+        
         useEffect(() => {
         Object.entries(individualQuantity).forEach(([id, qty]) => {
             const itemPrice = prices[id] ?? 0; // ajuste para sua lógica de preço
@@ -36,6 +57,8 @@ export default function useAppHooks(){
             }
         });
     }, [individualQuantity,prices]);
+    
+   
 
     function addCarFunction(id:string, price:number){
         
@@ -81,7 +104,8 @@ export default function useAppHooks(){
 
     function isShow(id: string){
         
-        return !!hiddenMap[id];    
+        return !!hiddenMap[id];  
+          
         
     }
 
@@ -102,10 +126,12 @@ export default function useAppHooks(){
     }
 
     function showConfirm(){
+        setShowConfirmedOrder(true)
         setShowConfirmItems((prev) => prev = true)
         
     }
     function hiddenConfirm(){
+        setShowConfirmedOrder(false)
         setShowConfirmItems((prev) => prev = false)
 
     }
@@ -116,19 +142,22 @@ export default function useAppHooks(){
 
     const totalQuantity = Object.values(individualQuantity).reduce((sum, qty) => sum + qty, 0);
     const toltalValue = Object.values(individualTotal).reduce((sum, qty) => sum + qty, 0)
-
+    
     function AlertSweet(){
-    Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Thank you for your preference",
-        showConfirmButton: false,
-        timer: 1500
-    });
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Thank you for your preference",
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+                popup: 'swal-custom-z'
+            }
+        });
 
-    setInterval(() => {
-        window.location.reload()
-    }, 1503 );
+        setInterval(() => {
+            window.location.reload()
+        }, 1503 );
     }
 return{
     addCarFunction,
@@ -145,8 +174,11 @@ return{
     showConfirm,
     visibleConfirm,
     hiddenConfirm,
-    AlertSweet
-    
+    AlertSweet,
+    loginUser,
+    showConfirmedOrder,
+    logoutUser,
+    moveHandleDesserts
 }
 }
 

@@ -1,6 +1,9 @@
 import Fastify from 'fastify';
 import { routes } from './routes.js';
 import cors from '@fastify/cors'
+import fastifyFormbody from '@fastify/formbody';
+import fastifySwagger from '@fastify/swagger';
+import fastifySwaggerUi from '@fastify/swagger-ui'
 
 const app = Fastify({ logger: true})
 
@@ -12,6 +15,24 @@ const start = async () => {
       allowedHeaders: ['Content-Type', 'Authorization']
     
     });
+
+
+    await app.register(fastifySwagger, {
+      openapi:{
+        info:{
+          title: "Dessert Shop API",
+          description: 'Documentação da API do Projeto Semestral',
+          version: '1.0.0'
+        }
+      }
+    });
+    
+    
+    await app.register(fastifySwaggerUi, {
+      routePrefix: '/docs', 
+    })
+
+    app.register(fastifyFormbody);
     await app.register(routes);
     
     try{

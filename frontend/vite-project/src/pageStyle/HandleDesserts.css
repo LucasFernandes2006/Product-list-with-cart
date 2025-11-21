@@ -13,7 +13,7 @@
   --colo6: hsl(14, 65%, 9%);
 }
 
-body{
+.handle-desserts-body{
   font-family: "Red Hat Text", sans-serif;
   background-color: var(--colo2);
   padding: 20px;
@@ -103,7 +103,7 @@ form[action="dessertForm"]{
   border: 1px solid rgba(0,0,0,0.08);
   background: white;
   outline: none;
-  width: 30em;
+
   font-size: 0.95rem;
   color: var(--colo6);
 }
@@ -381,6 +381,8 @@ input[type=number] {
 }
 
 @media (min-width: 994px){
+
+  
   form[action="dessertForm"]{
     display: flex;
     gap: 18px;

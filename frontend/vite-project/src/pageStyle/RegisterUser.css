@@ -1,0 +1,165 @@
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --colo1: hsl(20, 50%, 98%);
+  --colo2: hsl(13, 31%, 94%);
+  --colo3: hsl(14, 25%, 72%);
+  --colo4: hsl(7, 20%, 60%);
+  --accent: hsl(14, 86%, 42%);
+  --text: hsl(14, 65%, 9%);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--colo2);
+  font-family: "Red Hat Text", sans-serif;
+}
+
+.registerWrapper{
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--colo2);
+}
+
+.form-register{
+  width: 100%;
+  max-width: 520px;
+  background: var(--colo1);
+  border-radius: 20px;
+  padding: 36px 32px 28px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 22px;
+}
+
+.form-register .arrow-left a{
+  font-size: 2em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.form-register h1{
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--text);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.form-row{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.field label{
+  font-size: 1rem;
+  color: var(--colo4);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"],
+.field input[type="date"],
+.field input[type="tel"]{
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--colo3);
+  background: #fff;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: border 0.2s;
+}
+
+.field input:focus {
+  border: 1.5px solid var(--accent);
+}
+
+.actions{
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.actions .btn{
+  padding: 13px 28px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.actions .btn.primary{
+  background: var(--accent);
+  color: var(--colo1);
+}
+
+.actions .btn.primary:hover{
+  background: hsl(14, 86%, 35%);
+}
+
+.actions .btn.secondary{
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+
+.actions .btn.secondary:hover{
+  background: var(--accent);
+  color: var(--colo1);
+}
+
+.form-register .message{
+  margin-top: 8px;
+  color: var(--colo4);
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 600px){
+  .form-register{
+    max-width: 98vw;
+    padding: 18px 6vw 18px 6vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .registerWrapper{
+    padding: 0;
+  }
+}
+
+@media (min-width: 900px){
+  .form-register{
+    max-width: 600px;
+    padding: 48px 48px 36px 48px;
+    gap: 28px;
+  }
+  .form-row{
+    gap: 24px;
+  }
+  .field input{
+    font-size: 1.08rem;
+  }
+}
