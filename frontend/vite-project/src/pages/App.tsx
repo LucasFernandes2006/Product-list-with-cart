@@ -2,6 +2,7 @@ import '../pageStyle/App.css'
 
 import noItem from '../assets/images/illustration-empty-cart.svg'
 import iconCart from '../assets/images/icon-add-to-cart.svg'
+import iconDessertChat from '../assets/images/DessertChatIcon2.png'
 
 import removeIcon from '../assets/images/icon-remove-item.svg'
 import carbonIcon from '../assets/images/icon-carbon-neutral.svg'
@@ -25,7 +26,7 @@ interface DessertProps{
 export default function App() {
   
   const [dessert, setDessert] = useState<DessertProps[]>([])
-  const {addCarFunction, isHidden, isShow, getQuantity, incrementFunction, decrementFunction, totalQuantity,showIndividualTotal,toltalValue, isHiddenNoItems, removeItem, showConfirm,hiddenConfirm, visibleConfirm, AlertSweet, loginUser, showConfirmedOrder,logoutUser,moveHandleDesserts} = useAppHooks();
+  const {addCarFunction, isHidden, isShow, getQuantity, incrementFunction, decrementFunction, totalQuantity,showIndividualTotal,toltalValue, isHiddenNoItems, removeItem, showConfirm,hiddenConfirm, visibleConfirm, AlertSweet, loginUser, showConfirmedOrder,logoutUser,moveHandleDesserts,showDesc,isShowDesc} = useAppHooks();
 
   useEffect(()=> {
     loadDesserts(); 
@@ -40,7 +41,7 @@ export default function App() {
     <div>
       <nav className="navbar-app">
         <div className="navbar-content">
-          <span className="navbar-title">🍰 Dessert Shop, hello {loginUser.name} </span>
+          <span className="navbar-title"><img src={iconDessertChat} alt="" /></span>
           
           <div className="navbar-user">
             { loginUser.user_type == "admim" &&(
@@ -55,8 +56,8 @@ export default function App() {
         </div>
       </nav>
       
-      <h1> Desserts</h1>
-    <main>
+    <h1 className='title_main'>Desserts</h1>
+    <main className='main_App'>
       
       <div className="div-items">
 
@@ -68,7 +69,6 @@ export default function App() {
             <source media="(min-width:769px)" srcSet={dessertInfo.image} />
             <img src={dessertInfo.image} alt="" />
           </picture>
-            
           <div className="btn-local">
            
             <div className={`btn_car ${isHidden(dessertInfo.id) ? 'hidden' : ''}`} onClick={() => addCarFunction(dessertInfo.id, dessertInfo.price)} >
@@ -79,7 +79,7 @@ export default function App() {
             </div>
 
             <div className={`btn-orange ${isShow(dessertInfo.id) ? 'show' : ''}`}>
-              <div className="btn-quanti decrement" onClick={() => decrementFunction(dessertInfo.id)}>
+              <div className="btn-quanti decrement" onClick={() => decrementFunction(dessertInfo.id)}  >
                 <img src={decrementIcon} />
               </div>
 
@@ -92,13 +92,19 @@ export default function App() {
           </div>
 
           <div className="item-text">
-            <p className="name-item"> {dessertInfo.name}</p>
-            <p className="secund-name-item"><strong>{dessertInfo.second_name}</strong></p>
-            <p className="value-item"><strong>${dessertInfo.price.toFixed(2).replace(".", ",")}</strong></p>
+            <p className="name-item"> <div>{dessertInfo.name}</div></p>
+              <p className="secund-name-item"><strong>{dessertInfo.second_name}</strong> <p className='info_item' onClick={ () =>showDesc(dessertInfo.id)}>&#x1F6C8;</p></p>
+            <p className="value-item"><strong>${dessertInfo.price.toFixed(2).replace(".", ",")}</strong></p>           
+            
+            <div className={`desc-div ${isShowDesc(dessertInfo.id) ? 'show' : ''}`}>
+              <h4>{dessertInfo.second_name}</h4>
+              <hr />
+              <h3>{dessertInfo.description}</h3>
+            </div>
+
           </div>
+          
         </div>
-
-
         ))}
         
       </div>

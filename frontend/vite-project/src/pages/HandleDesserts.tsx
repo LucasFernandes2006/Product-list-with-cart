@@ -1,5 +1,6 @@
 import {useRef} from 'react'
 import useHandleDessertsHooks from '../hooks/useHandleDessertsHooks';
+import iconDessertChat from '../assets/images/DessertChatIcon2.png'
 import '../pageStyle/HandleDesserts.css'
 
 export default function HandleDesserts() {
@@ -17,9 +18,9 @@ export default function HandleDesserts() {
   
   return (
     <>
-          <nav className="navbar-app">
+      <nav className="navbar-app">
         <div className="navbar-content">
-          <span className="navbar-title">🍰 Dessert Shop, Hello:{loginUser.name} </span>
+          <span className="navbar-title"><img src={iconDessertChat} alt="" /></span>
           
           <div className="navbar-user">
             <button className="navbar-logout" onClick={() => moveHome()}>
@@ -31,8 +32,10 @@ export default function HandleDesserts() {
           </div>
         </div>
       </nav>
-    <h1>Create Dessert</h1>
-    <div className='newDessert'>
+
+    <h1 className='title_main'>Create Dessert</h1>
+    <main className='main_HandleDesserts'>
+      <div className='newDessert'>
 
       <form action="dessertForm" onSubmit={(e) => dessertSubmit(e, nameRef, secundNameRef, desRef, priceRef)}>
           <div className='imageDessert'>
@@ -107,6 +110,8 @@ export default function HandleDesserts() {
             ))}           
           </div>
       </div>
+    </main>
+    
     </>
   )
 }

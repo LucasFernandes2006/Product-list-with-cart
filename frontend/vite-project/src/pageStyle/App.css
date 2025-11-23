@@ -14,15 +14,12 @@
 }
 body {
     font-family:"Red Hat Text", sans-serif;
-    padding: 20px;
     background-color: var(--colo2);
 }
 
+
+
 .navbar-app {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   background: var(--colo7);
   color: #fff;
@@ -41,12 +38,12 @@ body {
 }
 
 .navbar-title {
-  font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 1px;
-  
 }
-
+.navbar-title img{
+    height: 100px;
+}
 .navbar-user {
   display: flex;
   align-items: center;
@@ -74,9 +71,11 @@ body {
   color: #fff;
   border: 1px solid #fff;
 }
-/* ...existing code... */
-h1{
-    margin-bottom: 15px;
+h1.title_main{
+    margin-inline-start: 1em;
+}
+main.main_App{
+    padding: 20px;
 }
 main div.div-items{
     display: flex;
@@ -177,10 +176,40 @@ main div.div-items div.card-item div.item-text p{
 main div.div-items div.card-item div.item-text p.name-item{
     font-size: 0.8em;
 }
+main div.div-items div.card-item div.item-text p.secund-name-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+main div.div-items div.card-item div.item-text p.secund-name-item p.info_item{
+    cursor: help;
+    font-size: larger;
+}
 
 main div.div-items div.card-item div.item-text p.value-item{
     color: var(--colo7);
 }
+
+main div.div-items div.card-item div.item-text div.desc-div{
+    display: none;
+}
+main div.div-items div.card-item div.item-text div.desc-div.show{
+    display: block;
+    position: absolute;
+    border-radius: 20px;
+    background-color:var(--colo1);
+    padding: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main div.div-items div.card-item div.item-text div.desc-div.show h4{
+    color: #c73a0f;
+}
+
+main div.div-items div.card-item div.item-text div.desc-div.show hr{
+    margin: 0.5em 0 0.5em 0;
+}
+
 main div.added-box{
     display: flex;
     justify-content: center;
@@ -462,7 +491,7 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     cursor: pointer;
 }
 
-@media screen and (min-width: 769px) and (max-width: 993px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
     
     
     main div.div-items div.card-item{
@@ -486,18 +515,21 @@ main div.confirmed-order div.btn-local div.confirm-btn{
 }
 }
 
-@media screen and (min-width: 994px){
+@media screen and (min-width: 1025px){
+    
     .navbar-app {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+
         border-radius: 0% 0px 20px  20px ;
+    }
+
+    h1.title_main{
+    margin-inline-start: 1.4em;
     }
     main{
         display: flex;
         flex-flow: norow wrap;
     }
+
     main div.div-items{
         width: 65%;
     }
@@ -508,8 +540,12 @@ main div.confirmed-order div.btn-local div.confirm-btn{
     }
 
     main div.div-items div.card-item div.item-text p.secund-name-item{
-        font-size: 1.2vw;
+        font-size: 1.2vw;   
     }
+    main div.div-items div.card-item div.item-text p.secund-name-item p.info_item{
+    cursor: help;
+    font-size: x-large;
+}
 
     main div.div-items div.card-item div.btn_car strong{
         font-size: 1vw;

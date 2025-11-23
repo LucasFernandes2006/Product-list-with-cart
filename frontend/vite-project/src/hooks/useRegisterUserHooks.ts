@@ -2,8 +2,11 @@ import type {FormEvent} from 'react'
 import { api } from '../services/api'
 import { AxiosError } from 'axios'
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function useRegisterUserHooks (){
+    const navigate = useNavigate();
     async function userSubmit(event:FormEvent<HTMLFormElement>, name:React.RefObject<HTMLInputElement|null>, email:React.RefObject<HTMLInputElement|null>, date:React.RefObject<HTMLInputElement|null>, password:React.RefObject<HTMLInputElement|null>){
         event.preventDefault();
         try{
@@ -18,7 +21,9 @@ export default function useRegisterUserHooks (){
                 password: password.current?.value,           
             })
 
+
         console.log(response.data.name,response.data.user_type )
+        navigate('/');
         } catch(error){
             if(error instanceof AxiosError){
                 const errorMessage = error.response?.data?.message || error.message;

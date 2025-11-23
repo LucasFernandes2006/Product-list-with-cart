@@ -28,7 +28,7 @@ export default function LoginUser() {
           </div>
         </div>
         <div className="actions">
-          <input className="btn primary" type="submit" value="Cadastrar" />
+          <input className="btn primary" type="submit" value="Enter" />
         </div>
       </form>
     </div>

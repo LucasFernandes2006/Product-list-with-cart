@@ -37,7 +37,7 @@ export default function RegisterUser() {
           </div>
         </div>
         <div className="actions">
-          <input className="btn primary" type="submit" value="Cadastrar" />
+          <input className="btn primary" type="submit" value="Create Account" />
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 export default function useAppHooks(){
     const [hiddenMap, setHiddenMap] = useState<Record<string, boolean>>({});
     const [hiddenNoItems, setHiddenNoItems] = useState<boolean>();
+    const [hiddenDesc,setHiddenDesc ] = useState<Record<string, boolean>>({});
     const [showConfirmItems, setShowConfirmItems] = useState<boolean>();
     const [individualQuantity, setIndividualQuantity] = useState<Record<string, number>>({});
     const [individualTotal, setIndividualTotal] = useState<Record<string, number>>({});
@@ -71,7 +72,7 @@ export default function useAppHooks(){
         
         setPrices(prev => ({
             ...prev,
-            [id]: price // armazena o preço recebido
+            [id]: price 
         }));
     }
 
@@ -104,14 +105,22 @@ export default function useAppHooks(){
 
     function isShow(id: string){
         
-        return !!hiddenMap[id];  
-          
-        
+        return !!hiddenMap[id];   
     }
 
     function isHiddenNoItems(){
         
         return !!hiddenNoItems;    
+    }
+
+    function showDesc(id:string){
+        setHiddenDesc(prev =>(
+            {...prev, [id]: true == hiddenDesc[id]== !true}
+        ))
+    }
+
+    function isShowDesc(id:string){
+        return !!hiddenDesc[id];
     }
 
     function formatPrice(value: number): string {
@@ -178,7 +187,10 @@ return{
     loginUser,
     showConfirmedOrder,
     logoutUser,
-    moveHandleDesserts
+    moveHandleDesserts,
+    showDesc,
+    isShowDesc
+    
 }
 }
 
