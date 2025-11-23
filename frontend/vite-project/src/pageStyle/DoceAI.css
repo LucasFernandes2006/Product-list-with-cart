@@ -106,3 +106,7 @@
 .chat-form button:hover {
   background-color: #a1300e;
 }
+
+.link-home {
+  position: absolute;
+}
