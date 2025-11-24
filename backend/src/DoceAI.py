@@ -10,13 +10,6 @@ client = MongoClient('mongodb+srv://pcpaulocezar13_db_user:g-SwzAr_9kmfg85@proje
 db = client["projeto-4"]
 colecao_dessert = db['dessert']
 
-#desserts = list(colecao_dessert.find({}, {
-#    "image": 0
-#}))
-
-#for dessert in desserts:
-#    print(f"Nome: {dessert['name']} \nSegundo Nome: {dessert['second_name']} \nDescrição: {dessert['description']} \nPreço: {dessert['price']}")
-
 desserts = list(colecao_dessert.find({}, {"image": 0}))
 
 # transforma os dados em texto legível
