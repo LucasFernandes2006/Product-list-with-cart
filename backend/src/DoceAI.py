@@ -17,21 +17,21 @@ colecao_dessert = db['dessert']
 #for dessert in desserts:
 #    print(f"Nome: {dessert['name']} \nSegundo Nome: {dessert['second_name']} \nDescrição: {dessert['description']} \nPreço: {dessert['price']}")
 
+desserts = list(colecao_dessert.find({}, {"image": 0}))
+
+# transforma os dados em texto legível
+lista = "\n".join([
+    f"- {d.get('name')} (Preço R$ {d.get('price')}): {d.get('description')}"
+    for d in desserts
+])
+
+context = f"Estes são os doces disponíveis:\n{lista}"
+
 @app.route("/doceAI", methods=["POST"])
 def ai():
     try:
         data = request.get_json()
         user_message = data["message"]
-
-        desserts = list(colecao_dessert.find({}, {"image": 0}))
-        
-        # transforma os dados em texto legível
-        lista = "\n".join([
-            f"- {d.get('name')} (Preço R$ {d.get('price')}): {d.get('description')}"
-            for d in desserts
-        ])
-
-        context = f"Estes são os doces disponíveis:\n{lista}"
 
         response: ChatResponse = chat(
             model='llama3.1:8b',
